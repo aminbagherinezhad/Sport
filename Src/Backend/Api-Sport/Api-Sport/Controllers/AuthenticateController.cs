@@ -1,11 +1,14 @@
 ﻿using Api_Sport.Models;
 using Api_Sport.Models.Dtos;
+using Api_Sport.Services.Interfaces;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.Emit;
+using Microsoft.CodeAnalysis.Scripting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Serilog;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -17,12 +20,14 @@ namespace Api_Sport.Controllers
     public class AuthenticateController : ControllerBase
     {
         private readonly SportDbContext _context;
+        private readonly IUserService _userService;
         IConfiguration _configuration;
         private readonly IMapper _mapper;
 
-        public AuthenticateController(SportDbContext context, IConfiguration configuration, IMapper mapper)
+        public AuthenticateController(SportDbContext context, IConfiguration configuration, IMapper mapper, IUserService userService)
         {
             _configuration = configuration;
+            _userService = userService;
             _context = context;
             _mapper = mapper;
         }
@@ -32,17 +37,20 @@ namespace Api_Sport.Controllers
         {
             if (!ModelState.IsValid)
             {
+                Log.Warning("Required Property Has Not Null");
                 return BadRequest(ModelState);
             }
 
-            User res_UserValid = await ValidationCredentialAsync(user.UserName, user.Email);
+            User res_UserValid = await _userService.ValidationCredentialAsync(user.UserName, user.Email);
             if (res_UserValid != null)
             {
-                // Find user Has Before
+                Log.Warning("Find User Has Before");
+
                 return BadRequest();
             }
-            //Add User
-            var createdUser = await AddUserAsync(user);
+
+            var createdUser = await _userService.AddUserAsync(user);
+            Log.Information("Succsessfully Create User In DB");
             var userDto = _mapper.Map<UserDto>(createdUser); // برگرداندن مقدار جدید
 
             var securityKey = new SymmetricSecurityKey(
@@ -73,30 +81,57 @@ namespace Api_Sport.Controllers
 
             var tokenToReturn = new JwtSecurityTokenHandler()
                 .WriteToken(jwtSecurityToke);
+            Log.Information("Succsessfully Create Token For User");
             return Ok(tokenToReturn);
         }
-
-        #region method
-
-        public async Task<User> ValidationCredentialAsync(string userName, string email)
+        [HttpPost("Login")]
+        public async Task<IActionResult> Login([FromBody] LoginUserDto loginDto)
         {
-            userName = userName?.Trim().ToLower();
-            email = email?.Trim().ToLower();
+            if (!ModelState.IsValid)
+            {
+                Log.Warning("Invalid login request");
+                return BadRequest(ModelState);
+            }
 
-            return await _context.Users
-                .AsNoTracking()
-                .SingleOrDefaultAsync(u =>
-                    u.UserName.ToLower() == userName ||
-                    (!string.IsNullOrEmpty(email) && u.Email.ToLower() == email));
-        }
-        public async Task<User> AddUserAsync(UserDto userDto)
-        {
-            var newUser = _mapper.Map<User>(userDto);
+            var user = await _userService.GetUserByUsernameAsync(loginDto.UserName);
+            if (user == null || !BCrypt.Net.BCrypt.Verify(loginDto.Password, user.Password))
+            {
+                Log.Warning("Invalid username or password");
+                return Unauthorized("Invalid credentials");
+            }
 
-            await _context.AddAsync(newUser);
-            await _context.SaveChangesAsync();
-            return newUser;
+            var securityKey = new SymmetricSecurityKey(
+                Encoding.ASCII.GetBytes(_configuration["Authentication:SecretForKey"])
+            );
+            var signingCredentials = new SigningCredentials(
+                securityKey, SecurityAlgorithms.HmacSha256
+            );
+
+            var claimsForToken = new List<Claim>();
+            if (user.Id != 0)
+                claimsForToken.Add(new Claim("userId", user.Id.ToString()));
+
+            if (!string.IsNullOrWhiteSpace(user.UserName))
+                claimsForToken.Add(new Claim("userName", user.UserName));
+
+            if (!string.IsNullOrWhiteSpace(user.Email))
+                claimsForToken.Add(new Claim(ClaimTypes.Email, user.Email));
+
+
+            var jwtSecurityToken = new JwtSecurityToken(
+                _configuration["Authentication:Issuer"],
+                _configuration["Authentication:Audience"],
+                claimsForToken,
+                DateTime.Now,
+                DateTime.Now.AddHours(1),
+                signingCredentials
+            );
+
+            var token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken);
+            Log.Information("User logged in and token issued");
+
+            return Ok(token);
         }
-        #endregion
+
     }
 }

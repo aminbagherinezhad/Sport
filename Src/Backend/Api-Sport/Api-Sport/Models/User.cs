@@ -16,4 +16,6 @@ public partial class User
     public string? Avatar { get; set; }
 
     public bool? IsBlock { get; set; }
+
+    public string? Password { get; set; }
 }

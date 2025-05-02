@@ -27,6 +27,7 @@ public partial class SportDbContext : DbContext
         {
             entity.Property(e => e.Avatar).HasMaxLength(50);
             entity.Property(e => e.Email).HasMaxLength(50);
+            entity.Property(e => e.Password).HasMaxLength(150);
             entity.Property(e => e.Phone).HasMaxLength(15);
             entity.Property(e => e.UserName).HasMaxLength(30);
         });

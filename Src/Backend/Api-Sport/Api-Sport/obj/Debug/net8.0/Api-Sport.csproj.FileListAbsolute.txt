@@ -262,3 +262,13 @@ D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport\bin\Debug\net8.0
 D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport\bin\Debug\net8.0\AutoMapper.dll
 D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport\bin\Debug\net8.0\BCrypt.Net-Next.dll
+D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport\bin\Debug\net8.0\Serilog.dll
+D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport\bin\Debug\net8.0\Serilog.AspNetCore.dll
+D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport\bin\Debug\net8.0\Serilog.Extensions.Hosting.dll
+D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport\bin\Debug\net8.0\Serilog.Extensions.Logging.dll
+D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport\bin\Debug\net8.0\Serilog.Formatting.Compact.dll
+D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport\bin\Debug\net8.0\Serilog.Settings.Configuration.dll
+D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport\bin\Debug\net8.0\Serilog.Sinks.Console.dll
+D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport\bin\Debug\net8.0\Serilog.Sinks.Debug.dll
+D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport\bin\Debug\net8.0\Serilog.Sinks.File.dll
