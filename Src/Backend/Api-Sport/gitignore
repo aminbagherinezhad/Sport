@@ -1,0 +1,72 @@
+
+# Build results
+bin/
+obj/
+out/
+
+# User-specific files
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
+
+# VS Code settings
+.vscode/
+.vscode/*
+
+# Rider settings
+.idea/
+
+# DotCover
+*.dotCover
+
+# ASP.NET Core secrets
+secrets.json
+
+# IIS Express settings
+.vs/
+*.vspscc
+*.vssscc
+*.scc
+
+# Log files
+*.log
+
+# Npm / node modules (if used)
+node_modules/
+
+# Paket dependency manager
+.paket/
+paket-files/
+
+# Web publish
+wwwroot/dist/
+wwwroot/node_modules/
+
+# Environment files
+.env
+.env.*
+
+# Compiled Razor views
+**/obj/**/*.cshtml.cs
+
+# EF Core tools artifacts
+Migrations/
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# Visual Studio Code
+.history/
+
+# Publish outputs
+publish/
+*.db
+
+# macOS files
+.DS_Store
+
+# Windows Thumbs
+Thumbs.db
+desktop.ini
