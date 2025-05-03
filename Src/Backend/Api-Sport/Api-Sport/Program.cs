@@ -32,6 +32,16 @@ builder.Services.AddAuthentication("Bearer")
         };
     }
     );
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAngularClient",
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:4200") // آدرس پروژه Angular
+                  .AllowAnyHeader()
+                  .AllowAnyMethod();
+        });
+});
 Log.Logger = new LoggerConfiguration()
     .ReadFrom.Configuration(builder.Configuration)  // تنظیمات را از appsettings.json می‌خوانیم
     .CreateLogger();
@@ -48,6 +58,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseCors("AllowAngularClient"); // این باید قبل از UseAuthorization باشه
+
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseHttpsRedirection();

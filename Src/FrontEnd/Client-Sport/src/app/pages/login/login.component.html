@@ -1,0 +1,24 @@
+<div class="login-container">
+    <mat-card>
+      <mat-card-title>ورود به حساب</mat-card-title>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>نام کاربری</mat-label>
+          <input matInput type="userName" formControlName="userName">
+          <mat-error *ngIf="loginForm.get('userName')?.hasError('required')">نام کاربری الزامی است</mat-error>
+          <mat-error *ngIf="loginForm.get('userName')?.hasError('userName')">نام کاربری معتبر نیست</mat-error>
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>رمز عبور</mat-label>
+          <input matInput type="password" formControlName="password">
+          <mat-error *ngIf="loginForm.get('password')?.hasError('required')">رمز عبور الزامی است</mat-error>
+        </mat-form-field>
+  
+        <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid">
+          ورود
+        </button>
+      </form>
+    </mat-card>
+  </div>
+  
