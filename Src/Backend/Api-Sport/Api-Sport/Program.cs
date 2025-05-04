@@ -1,12 +1,11 @@
-﻿using Api_Sport.Models;
-using Microsoft.IdentityModel.Tokens;
+﻿using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using System.Text;
-using Api_Sport.Models.Mapping;
 using Serilog;
-using Api_Sport.Services.Interfaces;
-using Api_Sport.Services;
 using Serilog.Events;
+using Api_Sport_Business_Logic.Services.Interfaces;
+using Api_Sport_Business_Logic.Services;
+using Api_Sport_Business_Logic.Models.Mapping;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -14,7 +13,6 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<SportDbContext>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddAutoMapper(typeof(UserProfile));
 builder.Services.AddAuthentication("Bearer")

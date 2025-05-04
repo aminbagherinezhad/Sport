@@ -1,0 +1,15 @@
+D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport-DataLayer\bin\Debug\net8.0\Api-Sport-DataLayer.deps.json
+D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport-DataLayer\bin\Debug\net8.0\Api-Sport-DataLayer.runtimeconfig.json
+D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport-DataLayer\bin\Debug\net8.0\Api-Sport-DataLayer.dll
+D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport-DataLayer\bin\Debug\net8.0\Api-Sport-DataLayer.pdb
+D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport-DataLayer\obj\Debug\net8.0\Api-Sport-DataLayer.csproj.AssemblyReference.cache
+D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport-DataLayer\obj\Debug\net8.0\Api-Sport-DataLayer.GeneratedMSBuildEditorConfig.editorconfig
+D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport-DataLayer\obj\Debug\net8.0\Api-Sport-DataLayer.AssemblyInfoInputs.cache
+D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport-DataLayer\obj\Debug\net8.0\Api-Sport-DataLayer.AssemblyInfo.cs
+D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport-DataLayer\obj\Debug\net8.0\Api-Sport-DataLayer.csproj.CoreCompileInputs.cache
+D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport-DataLayer\obj\Debug\net8.0\Api-Sport-DataLayer.sourcelink.json
+D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport-DataLayer\obj\Debug\net8.0\Api-Sport-DataLayer.dll
+D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport-DataLayer\obj\Debug\net8.0\refint\Api-Sport-DataLayer.dll
+D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport-DataLayer\obj\Debug\net8.0\Api-Sport-DataLayer.pdb
+D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport-DataLayer\obj\Debug\net8.0\Api-Sport-DataLayer.genruntimeconfig.cache
+D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport-DataLayer\obj\Debug\net8.0\ref\Api-Sport-DataLayer.dll

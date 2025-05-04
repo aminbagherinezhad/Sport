@@ -4,14 +4,93 @@
     "D:\\Amin\\Project\\Sports-Advanced\\Src\\Backend\\Api-Sport\\Api-Sport\\Api-Sport.csproj": {}
   },
   "projects": {
-    "D:\\Amin\\Project\\Sports-Advanced\\Src\\Backend\\Api-Sport\\Api-Sport\\Api-Sport.csproj": {
+    "D:\\Amin\\Project\\Sports-Advanced\\Src\\Backend\\Api-Sport\\Api-Sport-Business-Logic\\Api-Sport-Business-Logic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Amin\\Project\\Sports-Advanced\\Src\\Backend\\Api-Sport\\Api-Sport\\Api-Sport.csproj",
-        "projectName": "Api-Sport",
-        "projectPath": "D:\\Amin\\Project\\Sports-Advanced\\Src\\Backend\\Api-Sport\\Api-Sport\\Api-Sport.csproj",
+        "projectUniqueName": "D:\\Amin\\Project\\Sports-Advanced\\Src\\Backend\\Api-Sport\\Api-Sport-Business-Logic\\Api-Sport-Business-Logic.csproj",
+        "projectName": "Api-Sport-Business-Logic",
+        "projectPath": "D:\\Amin\\Project\\Sports-Advanced\\Src\\Backend\\Api-Sport\\Api-Sport-Business-Logic\\Api-Sport-Business-Logic.csproj",
         "packagesPath": "C:\\Users\\ctOS\\.nuget\\packages\\",
-        "outputPath": "D:\\Amin\\Project\\Sports-Advanced\\Src\\Backend\\Api-Sport\\Api-Sport\\obj\\",
+        "outputPath": "D:\\Amin\\Project\\Sports-Advanced\\Src\\Backend\\Api-Sport\\Api-Sport-Business-Logic\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ctOS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "D:\\Amin\\Project\\Sports-Advanced\\Src\\Backend\\Api-Sport\\Api-Sport-DataLayer\\Api-Sport-DataLayer.csproj": {
+                "projectPath": "D:\\Amin\\Project\\Sports-Advanced\\Src\\Backend\\Api-Sport\\Api-Sport-DataLayer\\Api-Sport-DataLayer.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[14.0.0, )"
+            },
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Amin\\Project\\Sports-Advanced\\Src\\Backend\\Api-Sport\\Api-Sport-DataLayer\\Api-Sport-DataLayer.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Amin\\Project\\Sports-Advanced\\Src\\Backend\\Api-Sport\\Api-Sport-DataLayer\\Api-Sport-DataLayer.csproj",
+        "projectName": "Api-Sport-DataLayer",
+        "projectPath": "D:\\Amin\\Project\\Sports-Advanced\\Src\\Backend\\Api-Sport\\Api-Sport-DataLayer\\Api-Sport-DataLayer.csproj",
+        "packagesPath": "C:\\Users\\ctOS\\.nuget\\packages\\",
+        "outputPath": "D:\\Amin\\Project\\Sports-Advanced\\Src\\Backend\\Api-Sport\\Api-Sport-DataLayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -50,14 +129,97 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[12.0.1, )"
+              "version": "[8.0.15, )"
             },
-            "BCrypt.Net-Next": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[4.0.3, )"
+              "version": "[8.0.15, )"
             },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.15, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[8.0.7, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Amin\\Project\\Sports-Advanced\\Src\\Backend\\Api-Sport\\Api-Sport\\Api-Sport.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Amin\\Project\\Sports-Advanced\\Src\\Backend\\Api-Sport\\Api-Sport\\Api-Sport.csproj",
+        "projectName": "Api-Sport",
+        "projectPath": "D:\\Amin\\Project\\Sports-Advanced\\Src\\Backend\\Api-Sport\\Api-Sport\\Api-Sport.csproj",
+        "packagesPath": "C:\\Users\\ctOS\\.nuget\\packages\\",
+        "outputPath": "D:\\Amin\\Project\\Sports-Advanced\\Src\\Backend\\Api-Sport\\Api-Sport\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ctOS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "D:\\Amin\\Project\\Sports-Advanced\\Src\\Backend\\Api-Sport\\Api-Sport-Business-Logic\\Api-Sport-Business-Logic.csproj": {
+                "projectPath": "D:\\Amin\\Project\\Sports-Advanced\\Src\\Backend\\Api-Sport\\Api-Sport-Business-Logic\\Api-Sport-Business-Logic.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[8.0.15, )"

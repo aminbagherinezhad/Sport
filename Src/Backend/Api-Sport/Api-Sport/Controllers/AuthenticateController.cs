@@ -1,6 +1,5 @@
-﻿using Api_Sport.Models;
-using Api_Sport.Models.Dtos;
-using Api_Sport.Services.Interfaces;
+﻿using Api_Sport_Business_Logic.Models.Dtos;
+using Api_Sport_Business_Logic.Services.Interfaces;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -19,16 +18,14 @@ namespace Api_Sport.Controllers
     [ApiController]
     public class AuthenticateController : ControllerBase
     {
-        private readonly SportDbContext _context;
         private readonly IUserService _userService;
         IConfiguration _configuration;
         private readonly IMapper _mapper;
 
-        public AuthenticateController(SportDbContext context, IConfiguration configuration, IMapper mapper, IUserService userService)
+        public AuthenticateController(IConfiguration configuration, IMapper mapper, IUserService userService)
         {
             _configuration = configuration;
             _userService = userService;
-            _context = context;
             _mapper = mapper;
         }
         [HttpPost("Register")]
@@ -41,7 +38,7 @@ namespace Api_Sport.Controllers
                 return BadRequest(ModelState);
             }
 
-            User res_UserValid = await _userService.ValidationCredentialAsync(user.UserName, user.Email);
+            var res_UserValid = await _userService.ValidationCredentialAsync(user.UserName, user.Email);
             if (res_UserValid != null)
             {
                 Log.Warning("Find User Has Before");

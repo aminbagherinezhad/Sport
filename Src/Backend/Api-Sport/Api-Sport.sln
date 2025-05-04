@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api-Sport", "Api-Sport\Api-Sport.csproj", "{6C73CFBF-187B-41B1-A7DF-920CF958989A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api-Sport", "Api-Sport\Api-Sport.csproj", "{6C73CFBF-187B-41B1-A7DF-920CF958989A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api-Sport-Business-Logic", "Api-Sport-Business-Logic\Api-Sport-Business-Logic.csproj", "{20BCA647-7789-42D0-8F70-BAA0A245E4B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api-Sport-DataLayer", "Api-Sport-DataLayer\Api-Sport-DataLayer.csproj", "{1F9C06C7-C426-41B3-A414-FF1A3B5834A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api-Sport-Test", "Api-Sport-Test\Api-Sport-Test.csproj", "{35F3FA2F-A13E-4B56-9265-7E9BF8977FC8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{6C73CFBF-187B-41B1-A7DF-920CF958989A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C73CFBF-187B-41B1-A7DF-920CF958989A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C73CFBF-187B-41B1-A7DF-920CF958989A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20BCA647-7789-42D0-8F70-BAA0A245E4B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20BCA647-7789-42D0-8F70-BAA0A245E4B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20BCA647-7789-42D0-8F70-BAA0A245E4B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20BCA647-7789-42D0-8F70-BAA0A245E4B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F9C06C7-C426-41B3-A414-FF1A3B5834A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F9C06C7-C426-41B3-A414-FF1A3B5834A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F9C06C7-C426-41B3-A414-FF1A3B5834A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F9C06C7-C426-41B3-A414-FF1A3B5834A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35F3FA2F-A13E-4B56-9265-7E9BF8977FC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35F3FA2F-A13E-4B56-9265-7E9BF8977FC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35F3FA2F-A13E-4B56-9265-7E9BF8977FC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35F3FA2F-A13E-4B56-9265-7E9BF8977FC8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -261,7 +261,6 @@ D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport\bin\Debug\net8.0
 D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
 D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport\bin\Debug\net8.0\AutoMapper.dll
-D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport\bin\Debug\net8.0\BCrypt.Net-Next.dll
 D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport\bin\Debug\net8.0\Serilog.dll
 D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport\bin\Debug\net8.0\Serilog.AspNetCore.dll
@@ -272,3 +271,7 @@ D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport\bin\Debug\net8.0
 D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport\bin\Debug\net8.0\Serilog.Sinks.Console.dll
 D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport\bin\Debug\net8.0\Serilog.Sinks.Debug.dll
 D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport\bin\Debug\net8.0\Serilog.Sinks.File.dll
+D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport\bin\Debug\net8.0\Api-Sport-Business-Logic.dll
+D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport\bin\Debug\net8.0\Api-Sport-DataLayer.dll
+D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport\bin\Debug\net8.0\Api-Sport-Business-Logic.pdb
+D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport\bin\Debug\net8.0\Api-Sport-DataLayer.pdb

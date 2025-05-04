@@ -1,0 +1,16 @@
+D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport-Business-Logic\bin\Debug\net8.0\Api-Sport-Business-Logic.deps.json
+D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport-Business-Logic\bin\Debug\net8.0\Api-Sport-Business-Logic.dll
+D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport-Business-Logic\bin\Debug\net8.0\Api-Sport-Business-Logic.pdb
+D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport-Business-Logic\bin\Debug\net8.0\Api-Sport-DataLayer.dll
+D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport-Business-Logic\bin\Debug\net8.0\Api-Sport-DataLayer.pdb
+D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport-Business-Logic\obj\Debug\net8.0\Api-Sport-Business-Logic.csproj.AssemblyReference.cache
+D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport-Business-Logic\obj\Debug\net8.0\Api-Sport-Business-Logic.GeneratedMSBuildEditorConfig.editorconfig
+D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport-Business-Logic\obj\Debug\net8.0\Api-Sport-Business-Logic.AssemblyInfoInputs.cache
+D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport-Business-Logic\obj\Debug\net8.0\Api-Sport-Business-Logic.AssemblyInfo.cs
+D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport-Business-Logic\obj\Debug\net8.0\Api-Sport-Business-Logic.csproj.CoreCompileInputs.cache
+D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport-Business-Logic\obj\Debug\net8.0\Api-Sport-Business-Logic.sourcelink.json
+D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport-Business-Logic\obj\Debug\net8.0\Api-Spor.D3A7D97B.Up2Date
+D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport-Business-Logic\obj\Debug\net8.0\Api-Sport-Business-Logic.dll
+D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport-Business-Logic\obj\Debug\net8.0\refint\Api-Sport-Business-Logic.dll
+D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport-Business-Logic\obj\Debug\net8.0\Api-Sport-Business-Logic.pdb
+D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport-Business-Logic\obj\Debug\net8.0\ref\Api-Sport-Business-Logic.dll
