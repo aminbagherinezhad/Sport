@@ -1,7 +1,16 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\Amin\\Project\\Sports-Advanced\\Src\\Backend\\Api-Sport\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6C73CFBF-187B-41B1-A7DF-920CF958989A}|Api-Sport\\Api-Sport.csproj|d:\\amin\\project\\sports-advanced\\src\\backend\\api-sport\\api-sport\\controllers\\authenticatecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6C73CFBF-187B-41B1-A7DF-920CF958989A}|Api-Sport\\Api-Sport.csproj|solutionrelative:api-sport\\controllers\\authenticatecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{35F3FA2F-A13E-4B56-9265-7E9BF8977FC8}|Api-Sport-Test\\Api-Sport-Test.csproj|d:\\amin\\project\\sports-advanced\\src\\backend\\api-sport\\api-sport-test\\authenticate\\userscontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{35F3FA2F-A13E-4B56-9265-7E9BF8977FC8}|Api-Sport-Test\\Api-Sport-Test.csproj|solutionrelative:api-sport-test\\authenticate\\userscontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +18,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AuthenticateController.cs",
+              "DocumentMoniker": "D:\\Amin\\Project\\Sports-Advanced\\Src\\Backend\\Api-Sport\\Api-Sport\\Controllers\\AuthenticateController.cs",
+              "RelativeDocumentMoniker": "Api-Sport\\Controllers\\AuthenticateController.cs",
+              "ToolTip": "D:\\Amin\\Project\\Sports-Advanced\\Src\\Backend\\Api-Sport\\Api-Sport\\Controllers\\AuthenticateController.cs",
+              "RelativeToolTip": "Api-Sport\\Controllers\\AuthenticateController.cs",
+              "ViewState": "AQIAACoAAAAAAAAAAAAowAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T19:35:02.579Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UsersControllerTests.cs",
+              "DocumentMoniker": "D:\\Amin\\Project\\Sports-Advanced\\Src\\Backend\\Api-Sport\\Api-Sport-Test\\Authenticate\\UsersControllerTests.cs",
+              "RelativeDocumentMoniker": "Api-Sport-Test\\Authenticate\\UsersControllerTests.cs",
+              "ToolTip": "D:\\Amin\\Project\\Sports-Advanced\\Src\\Backend\\Api-Sport\\Api-Sport-Test\\Authenticate\\UsersControllerTests.cs",
+              "RelativeToolTip": "Api-Sport-Test\\Authenticate\\UsersControllerTests.cs",
+              "ViewState": "AQIAABkAAAAAAAAAAAAgwDQAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T19:29:37.872Z",
+              "EditorCaption": ""
             }
           ]
         }
