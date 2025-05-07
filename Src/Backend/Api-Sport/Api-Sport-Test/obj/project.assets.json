@@ -15562,6 +15562,7 @@
     "net8.0": [
       "Api-Sport >= 1.0.0",
       "Api-Sport-Business-Logic >= 1.0.0",
+      "Api-Sport-DataLayer >= 1.0.0",
       "Microsoft.AspNetCore.Mvc >= 2.3.0",
       "Microsoft.NET.Test.Sdk >= 17.8.0",
       "Moq >= 4.20.72",
@@ -15605,6 +15606,9 @@
           "projectReferences": {
             "D:\\Amin\\Project\\Sports-Advanced\\Src\\Backend\\Api-Sport\\Api-Sport-Business-Logic\\Api-Sport-Business-Logic.csproj": {
               "projectPath": "D:\\Amin\\Project\\Sports-Advanced\\Src\\Backend\\Api-Sport\\Api-Sport-Business-Logic\\Api-Sport-Business-Logic.csproj"
+            },
+            "D:\\Amin\\Project\\Sports-Advanced\\Src\\Backend\\Api-Sport\\Api-Sport-DataLayer\\Api-Sport-DataLayer.csproj": {
+              "projectPath": "D:\\Amin\\Project\\Sports-Advanced\\Src\\Backend\\Api-Sport\\Api-Sport-DataLayer\\Api-Sport-DataLayer.csproj"
             },
             "D:\\Amin\\Project\\Sports-Advanced\\Src\\Backend\\Api-Sport\\Api-Sport\\Api-Sport.csproj": {
               "projectPath": "D:\\Amin\\Project\\Sports-Advanced\\Src\\Backend\\Api-Sport\\Api-Sport\\Api-Sport.csproj"

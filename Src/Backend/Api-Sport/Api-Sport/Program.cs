@@ -6,6 +6,7 @@ using Serilog.Events;
 using Api_Sport_Business_Logic.Services.Interfaces;
 using Api_Sport_Business_Logic.Services;
 using Api_Sport_Business_Logic.Models.Mapping;
+using Api_Sport_Business_Logic_Business_Logic.Utilites;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -14,6 +15,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<AuthHelper>();
+
 builder.Services.AddAutoMapper(typeof(UserProfile));
 builder.Services.AddAuthentication("Bearer")
     .AddJwtBearer(options =>

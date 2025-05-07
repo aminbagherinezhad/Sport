@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace Api_Sport_DataLayer.Models;
+namespace Api_Sport_DataLayer_DataLayer.Models;
 
 public partial class SportDbContext : DbContext
 {
@@ -15,6 +15,10 @@ public partial class SportDbContext : DbContext
     {
     }
 
+    public virtual DbSet<Chat> Chats { get; set; }
+
+    public virtual DbSet<Match> Matches { get; set; }
+
     public virtual DbSet<User> Users { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -23,6 +27,35 @@ public partial class SportDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Chat>(entity =>
+        {
+            entity.Property(e => e.Id).HasColumnName("ID");
+            entity.Property(e => e.CreateAt).HasColumnType("datetime");
+            entity.Property(e => e.MatchesId).HasColumnName("MatchesID");
+            entity.Property(e => e.Text).HasMaxLength(150);
+            entity.Property(e => e.UserId).HasColumnName("UserID");
+
+            entity.HasOne(d => d.Matches).WithMany(p => p.Chats)
+                .HasForeignKey(d => d.MatchesId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Chats_Matches");
+
+            entity.HasOne(d => d.User).WithMany(p => p.Chats)
+                .HasForeignKey(d => d.UserId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Chats_Users");
+        });
+
+        modelBuilder.Entity<Match>(entity =>
+        {
+            entity.Property(e => e.Id).HasColumnName("ID");
+            entity.Property(e => e.CreateDate).HasColumnType("datetime");
+            entity.Property(e => e.Description).HasMaxLength(50);
+            entity.Property(e => e.ImageName).HasMaxLength(50);
+            entity.Property(e => e.Text).HasMaxLength(50);
+            entity.Property(e => e.Title).HasMaxLength(50);
+        });
+
         modelBuilder.Entity<User>(entity =>
         {
             entity.Property(e => e.Avatar).HasMaxLength(50);

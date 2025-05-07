@@ -1,7 +1,8 @@
 ﻿using Api_Sport.Controllers;
 using Api_Sport_Business_Logic.Models.Dtos;
 using Api_Sport_Business_Logic.Services.Interfaces;
-using Api_Sport_DataLayer.Models;
+using Api_Sport_Business_Logic_Business_Logic.Utilites;
+using Api_Sport_DataLayer_DataLayer.Models;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -11,6 +12,7 @@ public class UsersControllerTests
 {
     private readonly Mock<IUserService> _mockUserService;
     private readonly Mock<IMapper> _mockMapper;
+    private readonly Mock<AuthHelper> _mockAuthHelper;
     private readonly Mock<IConfiguration> _mockConfiguration;
     private readonly AuthenticateController _controller;
 
@@ -18,12 +20,14 @@ public class UsersControllerTests
     {
         _mockUserService = new Mock<IUserService>();
         _mockMapper = new Mock<IMapper>();
+        _mockAuthHelper = new Mock<AuthHelper>();
         _mockConfiguration = new Mock<IConfiguration>();
 
         _controller = new AuthenticateController(
             _mockConfiguration.Object,
             _mockMapper.Object,
-            _mockUserService.Object
+            _mockUserService.Object,
+            _mockAuthHelper.Object
         );
     }
 

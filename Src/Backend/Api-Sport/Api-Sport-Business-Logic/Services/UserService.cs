@@ -1,6 +1,6 @@
 ﻿using Api_Sport_Business_Logic.Models.Dtos;
 using Api_Sport_Business_Logic.Services.Interfaces;
-using Api_Sport_DataLayer.Models;
+using Api_Sport_DataLayer_DataLayer.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Api_Sport_Business_Logic.Services

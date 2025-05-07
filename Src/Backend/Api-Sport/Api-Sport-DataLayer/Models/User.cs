@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Api_Sport_DataLayer.Models;
+namespace Api_Sport_DataLayer_DataLayer.Models;
 
 public partial class User
 {
@@ -18,4 +18,6 @@ public partial class User
     public bool? IsBlock { get; set; }
 
     public string? Password { get; set; }
+
+    public virtual ICollection<Chat> Chats { get; set; } = new List<Chat>();
 }

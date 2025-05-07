@@ -10,6 +10,7 @@
         "dependencies": {
           "Api-Sport": "1.0.0",
           "Api-Sport-Business-Logic": "1.0.0",
+          "Api-Sport-DataLayer": "1.0.0",
           "Microsoft.AspNetCore.Mvc": "2.3.0",
           "Microsoft.NET.Test.Sdk": "17.8.0",
           "Moq": "4.20.72",

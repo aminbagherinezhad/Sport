@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Api-Sport-Business-Logic\Api-Sport-Business-Logic.csproj" />
+    <ProjectReference Include="..\Api-Sport-DataLayer\Api-Sport-DataLayer.csproj" />
     <ProjectReference Include="..\Api-Sport\Api-Sport.csproj" />
   </ItemGroup>
 

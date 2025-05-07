@@ -1,5 +1,5 @@
 ﻿using Api_Sport_Business_Logic.Models.Dtos;
-using Api_Sport_DataLayer.Models;
+using Api_Sport_DataLayer_DataLayer.Models;
 
 namespace Api_Sport_Business_Logic.Services.Interfaces
 {

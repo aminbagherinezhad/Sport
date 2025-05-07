@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Api-Sport-DataLayer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+389f56192b03a3ad0e43caeb1853942f168820fb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3a1a445a56f7851c64d2f584d985fc889356a75e")]
 [assembly: System.Reflection.AssemblyProductAttribute("Api-Sport-DataLayer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Api-Sport-DataLayer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
