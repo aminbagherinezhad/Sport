@@ -36,7 +36,9 @@ export class LoginComponent {
       this.authService.login(credentials).subscribe({
         next: (response) => {
           console.log('ورود موفق:', response);
-          // اینجا مثلاً توکن رو ذخیره کن یا ریدایرکت کن
+          localStorage.setItem('token', response.token); // ✅ ذخیره توکن در localStorage
+console.log(response.token);
+          // ا ریدایرکت کن
         },
         error: (err) => {
           console.error('خطا در ورود:', err);

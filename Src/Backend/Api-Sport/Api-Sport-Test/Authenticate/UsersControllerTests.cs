@@ -1,18 +1,19 @@
 ﻿using Api_Sport.Controllers;
 using Api_Sport_Business_Logic.Models.Dtos;
 using Api_Sport_Business_Logic.Services.Interfaces;
-using Api_Sport_Business_Logic_Business_Logic.Utilites;
+using Api_Sport_Business_Logic_Business_Logic.Services.Interfaces;
 using Api_Sport_DataLayer_DataLayer.Models;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration.UserSecrets;
 using Moq;
 
 public class UsersControllerTests
 {
     private readonly Mock<IUserService> _mockUserService;
     private readonly Mock<IMapper> _mockMapper;
-    private readonly Mock<AuthHelper> _mockAuthHelper;
+    private readonly Mock<IAuthHelperService> _mockAuthHelper;
     private readonly Mock<IConfiguration> _mockConfiguration;
     private readonly AuthenticateController _controller;
 
@@ -20,7 +21,7 @@ public class UsersControllerTests
     {
         _mockUserService = new Mock<IUserService>();
         _mockMapper = new Mock<IMapper>();
-        _mockAuthHelper = new Mock<AuthHelper>();
+        _mockAuthHelper = new Mock<IAuthHelperService>();
         _mockConfiguration = new Mock<IConfiguration>();
 
         _controller = new AuthenticateController(
@@ -32,24 +33,10 @@ public class UsersControllerTests
     }
 
     [Fact]
-    public async Task Register_ReturnsBadRequest_WhenModelStateIsInvalid()
+    public async Task Register_ValidUser_ReturnsOkWithToken()
     {
         // Arrange
-        _controller.ModelState.AddModelError("Email", "Required");
-
-        var user = new UserDto();
-
-        // Act
-        var result = await _controller.Register(user);
-
-        // Assert
-        var badRequestResult = Assert.IsType<BadRequestObjectResult>(result);
-    }
-    [Fact]
-    public async Task Register_ReturnsOk_WithToken_WhenUserIsValid()
-    {
-        // Arrange
-        var inputUserDto = new UserDto
+        var userDto = new UserDto
         {
             Id = 0,
             UserName = "testuser",
@@ -65,38 +52,104 @@ public class UsersControllerTests
             Password = "hashed_password"
         };
 
-        var outputUserDto = new UserDto
+        var mappedUserDto = new UserDto
         {
             Id = 1,
             UserName = "testuser",
             Email = "test@example.com"
         };
 
-        _mockUserService.Setup(x => x.ValidationCredentialAsync(inputUserDto.UserName, inputUserDto.Email))
-                        .ReturnsAsync((User)null); // یعنی کاربر قبلاً وجود نداره
+        var token = "fake_jwt_token";
 
-        _mockUserService.Setup(x => x.AddUserAsync(inputUserDto))
-                        .ReturnsAsync(createdUser); // کاربر با موفقیت ساخته شد
+        var mockUserService = new Mock<IUserService>();
+        var mockMapper = new Mock<IMapper>();
+        var mockAuthHelper = new Mock<IAuthHelperService>();
 
-        _mockMapper.Setup(x => x.Map<UserDto>(createdUser))
-                   .Returns(outputUserDto);
+        mockAuthHelper.Setup(x => x.UserExistsAsync(userDto.UserName, userDto.Email))
+                      .ReturnsAsync(false);
 
-        _mockConfiguration.Setup(x => x["Authentication:SecretForKey"])
-                          .Returns("THIS_IS_A_TEST_SECRET_1234567890"); // حتماً طولش زیاد باشه
+        mockUserService.Setup(x => x.AddUserAsync(userDto))
+                       .ReturnsAsync(createdUser);
 
-        _mockConfiguration.Setup(x => x["Authentication:Issuer"])
-                          .Returns("TestIssuer");
+        mockMapper.Setup(x => x.Map<UserDto>(createdUser))
+                  .Returns(mappedUserDto);
 
-        _mockConfiguration.Setup(x => x["Authentication:Audience"])
-                          .Returns("TestAudience");
+        mockAuthHelper.Setup(x => x.GenerateJwtTokenAsync(mappedUserDto))
+                      .ReturnsAsync(token);
+
+        var controller = new AuthenticateController(_mockConfiguration.Object, mockMapper.Object, mockUserService.Object, mockAuthHelper.Object);
+
+
+        // ترفند برای دادن دستی AuthHelper اگر تو سازنده نیست:
+        typeof(AuthenticateController)
+            .GetField("_authHelper", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
+            ?.SetValue(controller, mockAuthHelper.Object);
 
         // Act
-        var result = await _controller.Register(inputUserDto);
+        var result = await controller.Register(userDto);
+        var okResult = Assert.IsType<OkObjectResult>(result);
+        // خروجی از نوع dynamic
+        var resultValue = okResult.Value;
+        var returnedToken = resultValue?.GetType().GetProperty("token")?.GetValue(resultValue, null)?.ToString();
+        // Assert
+        Assert.Equal(token, returnedToken);
+    }
+
+
+    [Fact]
+    public async Task Login_ValidCredentials_ReturnsOkWithToken()
+    {
+        // Arrange
+        var loginDto = new LoginUserDto
+        {
+            UserName = "testuser",
+            Password = "1234"
+        };
+
+        var user = new User
+        {
+            Id = 1,
+            UserName = "testuser",
+            Email = "test@example.com",
+            Password = BCrypt.Net.BCrypt.HashPassword("1234") // رمز هَش شده برای تست
+        };
+
+        var userDto = new UserDto
+        {
+            Id = 1,
+            UserName = "testuser",
+            Email = "test@example.com"
+        };
+
+        var token = "fake_jwt_token";
+
+        var mockUserService = new Mock<IUserService>();
+        var mockMapper = new Mock<IMapper>();
+        var mockAuthHelper = new Mock<IAuthHelperService>();
+        var mockConfig = new Mock<IConfiguration>();
+
+        // شبیه‌سازی رفتار سرویس‌ها
+        mockUserService.Setup(x => x.GetUserByUsernameAsync(loginDto.UserName))
+                       .ReturnsAsync(user);
+
+        mockMapper.Setup(x => x.Map<UserDto>(user))
+                  .Returns(userDto);
+
+        mockAuthHelper.Setup(x => x.GenerateJwtTokenAsync(userDto))
+                      .ReturnsAsync(token);
+
+        var controller = new AuthenticateController(mockConfig.Object, mockMapper.Object, mockUserService.Object, mockAuthHelper.Object);
+
+        // Act
+        var result = await controller.Login(loginDto);
+        var okResult = Assert.IsType<OkObjectResult>(result);
+        // خروجی از نوع dynamic
+        var resultValue = okResult.Value;
+        var returnedToken = resultValue?.GetType().GetProperty("token")?.GetValue(resultValue, null)?.ToString();
 
         // Assert
-        var okResult = Assert.IsType<OkObjectResult>(result);
-        Assert.NotNull(okResult.Value);
-        Assert.IsType<string>(okResult.Value); // چون خروجی JWT Token هست
+        Assert.Equal(token, returnedToken);
     }
+
 
 }

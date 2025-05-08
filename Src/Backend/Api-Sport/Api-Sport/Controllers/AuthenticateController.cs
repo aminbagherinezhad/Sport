@@ -6,12 +6,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Scripting;
 using Microsoft.EntityFrameworkCore;
-using Api_Sport_Business_Logic_Business_Logic.Utilites;
 using Microsoft.IdentityModel.Tokens;
 using Serilog;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using Api_Sport_Business_Logic_Business_Logic.Services.Interfaces;
 
 namespace Api_Sport.Controllers
 {
@@ -21,10 +21,10 @@ namespace Api_Sport.Controllers
     {
         private readonly IUserService _userService;
         IConfiguration _configuration;
-        private readonly AuthHelper _authHelper;
+        private readonly IAuthHelperService _authHelper;
         private readonly IMapper _mapper;
 
-        public AuthenticateController(IConfiguration configuration, IMapper mapper, IUserService userService, AuthHelper authHelper)
+        public AuthenticateController(IConfiguration configuration, IMapper mapper, IUserService userService, IAuthHelperService authHelper)
         {
             _configuration = configuration;
             _userService = userService;
@@ -35,16 +35,24 @@ namespace Api_Sport.Controllers
         public async Task<IActionResult> Register(UserDto user)
         {
             if (!ModelState.IsValid)
+            {
+                Log.Warning("ModelState Not Valid.");
                 return BadRequest(ModelState);
 
+            }
+
             if (await _authHelper.UserExistsAsync(user.UserName, user.Email))
+            {
+                Log.Warning("User already exists.");
                 return BadRequest("User already exists.");
+            }
 
             var createdUser = await _userService.AddUserAsync(user);
             var userDto = _mapper.Map<UserDto>(createdUser);
             var token = await _authHelper.GenerateJwtTokenAsync(userDto);
+            Log.Information("SuccsessFully Generate Token");
 
-            return Ok(token);
+            return Ok(new { token });
         }
         [HttpPost("Login")]
         public async Task<IActionResult> Login([FromBody] LoginUserDto loginDto)
@@ -63,12 +71,10 @@ namespace Api_Sport.Controllers
             }
 
             var userDto = _mapper.Map<UserDto>(user);
-            var token =await _authHelper.GenerateJwtTokenAsync(userDto);
+            var token = await _authHelper.GenerateJwtTokenAsync(userDto);
 
             Log.Information("User logged in and token issued");
-            return Ok(token);
+            return Ok(new { token });
         }
-
-
     }
 }

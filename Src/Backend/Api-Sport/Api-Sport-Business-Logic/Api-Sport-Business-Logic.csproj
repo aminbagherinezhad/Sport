@@ -16,4 +16,8 @@
     <ProjectReference Include="..\Api-Sport-DataLayer\Api-Sport-DataLayer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Utilites\" />
+  </ItemGroup>
+
 </Project>

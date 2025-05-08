@@ -1,7 +1,9 @@
 ﻿using Api_Sport_Business_Logic.Models.Dtos;
 using Api_Sport_Business_Logic.Services.Interfaces;
+using Api_Sport_Business_Logic_Business_Logic.Services.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -10,29 +12,23 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Api_Sport_Business_Logic_Business_Logic.Utilites
+namespace Api_Sport_Business_Logic_Business_Logic.Services
 {
-    public class AuthHelper
+    public class AuthHelperService : IAuthHelperService
     {
         IConfiguration _configuration;
 
         private readonly IUserService _userService;
-        public AuthHelper(IUserService userService, IConfiguration configuration)
+        public AuthHelperService(IUserService userService, IConfiguration configuration)
         {
             _configuration = configuration;
             _userService = userService;
         }
-        public async Task<bool> UserExistsAsync(string username, string email)
-        {
-            var existingUser = await _userService.ValidationCredentialAsync(username, email);
-            return existingUser != null;
-        }
-
         public async Task<string> GenerateJwtTokenAsync(UserDto user)
         {
             var securityKey = new SymmetricSecurityKey(
-                Encoding.ASCII.GetBytes(_configuration["Authentication:SecretForKey"])
-            );
+                 Encoding.ASCII.GetBytes(_configuration["Authentication:SecretForKey"])
+             );
 
             var signingCredentials = new SigningCredentials(
                 securityKey, SecurityAlgorithms.HmacSha256
@@ -59,6 +55,12 @@ namespace Api_Sport_Business_Logic_Business_Logic.Utilites
             );
 
             return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+
+        public async Task<bool> UserExistsAsync(string username, string email)
+        {
+            var existingUser = await _userService.ValidationCredentialAsync(username, email);
+            return existingUser != null;
         }
     }
 }

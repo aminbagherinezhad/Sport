@@ -6,16 +6,19 @@ using Serilog.Events;
 using Api_Sport_Business_Logic.Services.Interfaces;
 using Api_Sport_Business_Logic.Services;
 using Api_Sport_Business_Logic.Models.Mapping;
-using Api_Sport_Business_Logic_Business_Logic.Utilites;
+using Api_Sport_Business_Logic_Business_Logic.Services.Interfaces;
+using Api_Sport_Business_Logic_Business_Logic.Services;
+using Api_Sport_DataLayer_DataLayer.Models;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddSingleton<SportDbContext>();
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IAuthHelperService, AuthHelperService>();
 
 // Add services to the container.
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<IUserService, UserService>();
-builder.Services.AddScoped<AuthHelper>();
 
 builder.Services.AddAutoMapper(typeof(UserProfile));
 builder.Services.AddAuthentication("Bearer")

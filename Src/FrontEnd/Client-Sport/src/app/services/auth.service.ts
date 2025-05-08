@@ -10,8 +10,12 @@ export class AuthService {
   private http = inject(HttpClient);
 
   private apiUrl = 'https://localhost:7130/api/Authenticate/login'; // اینجا آدرس واقعی API بک‌اند خودتو بذار
-
+  private apiUrlRegister = 'https://localhost:7130/api/Authenticate'; 
+  
   login(credentials: { userName: string; password: string }): Observable<any> {
     return this.http.post<any>(this.apiUrl, credentials);
+  }
+  register(userData:any): Observable<any> {
+    return this.http.post(`${this.apiUrlRegister}/register`, userData);
   }
 }
