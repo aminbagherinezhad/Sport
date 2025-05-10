@@ -275,3 +275,4 @@ D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport\bin\Debug\net8.0
 D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport\bin\Debug\net8.0\Api-Sport-DataLayer.dll
 D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport\bin\Debug\net8.0\Api-Sport-Business-Logic.pdb
 D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport\bin\Debug\net8.0\Api-Sport-DataLayer.pdb
+D:\Amin\Project\Sports-Advanced\Src\Backend\Api-Sport\Api-Sport\bin\Debug\net8.0\Dapper.dll

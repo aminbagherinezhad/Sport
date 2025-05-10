@@ -9,9 +9,12 @@ using Api_Sport_Business_Logic.Models.Mapping;
 using Api_Sport_Business_Logic_Business_Logic.Services.Interfaces;
 using Api_Sport_Business_Logic_Business_Logic.Services;
 using Api_Sport_DataLayer_DataLayer.Models;
+
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddSingleton<SportDbContext>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IMatcheService, MatchService>();
 builder.Services.AddScoped<IAuthHelperService, AuthHelperService>();
 
 // Add services to the container.
