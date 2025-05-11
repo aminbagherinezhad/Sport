@@ -21,6 +21,10 @@ namespace Api_Sport_Business_Logic_Business_Logic.Services
         {
             return await _context.Matches.ToListAsync();
         }
-      
+
+        public async Task<Match> GetMatchDetailsByIdAsync(int id)
+        {
+            return await _context.Matches.SingleOrDefaultAsync(c => c.Id == id);
+        }
     }
 }

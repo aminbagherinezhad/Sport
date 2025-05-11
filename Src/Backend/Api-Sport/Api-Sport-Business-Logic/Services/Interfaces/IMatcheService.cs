@@ -9,6 +9,7 @@ namespace Api_Sport_Business_Logic_Business_Logic.Services.Interfaces
 {
     public interface IMatcheService
     {
-       Task<IEnumerable<Match>> GetAllmatchesAsync();
+        Task<IEnumerable<Match>> GetAllmatchesAsync();
+        Task<Match> GetMatchDetailsByIdAsync(int id);
     }
 }
