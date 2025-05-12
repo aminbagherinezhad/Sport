@@ -17,6 +17,13 @@ namespace Api_Sport_Business_Logic_Business_Logic.Services
             _context = context;
         }
 
+        public async Task CreateMatchAsync(Match match)
+        {
+            await _context.Matches.AddAsync(match);
+            await _context.SaveChangesAsync();
+
+        }
+
         public async Task<IEnumerable<Match>> GetAllmatchesAsync()
         {
             return await _context.Matches.ToListAsync();

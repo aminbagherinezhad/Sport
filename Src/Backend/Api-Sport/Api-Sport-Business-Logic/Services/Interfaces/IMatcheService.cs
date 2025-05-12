@@ -11,5 +11,6 @@ namespace Api_Sport_Business_Logic_Business_Logic.Services.Interfaces
     {
         Task<IEnumerable<Match>> GetAllmatchesAsync();
         Task<Match> GetMatchDetailsByIdAsync(int id);
+        Task CreateMatchAsync(Match match);
     }
 }

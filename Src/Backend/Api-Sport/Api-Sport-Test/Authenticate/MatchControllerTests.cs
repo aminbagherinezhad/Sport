@@ -22,29 +22,66 @@ namespace Api_Sport_Test.Authenticate
             _mockMatchService.Object
         );
         }
-        [Theory(DisplayName = "MatchDetailInvalid")]
-        [InlineData(2)]
-        public async Task MatchDetailsInvalid(int Id)
+
+        #region match detail
+        [Theory(DisplayName = "MatchDetails_ReturnsOk_WhenMatchExists")]
+        [InlineData(1)]
+        public async Task MatchDetails_ReturnsOk_WhenMatchExists(int id)
         {
-            //arrange
-            var matchInstance = new Api_Sport_DataLayer_DataLayer.Models.Match
+            // Arrange
+            var match = new Api_Sport_DataLayer_DataLayer.Models.Match { Id = id, Title = "Title", Description = "Desc" };
+            var mockService = new Mock<IMatcheService>();
+            mockService.Setup(x => x.GetMatchDetailsByIdAsync(id)).ReturnsAsync(match);
+            var controller = new MatchController(mockService.Object);
+
+            // Act
+            var result = await controller.MatchDetails(id);
+
+            // Assert
+            var okResult = Assert.IsType<OkObjectResult>(result);
+            Assert.Equal(match, okResult.Value);
+        }
+        [Theory(DisplayName = "MatchDetails_ReturnsNotFound_WhenMatchDoesNotExist")]
+        [InlineData(99)]
+        public async Task MatchDetails_ReturnsNotFound_WhenMatchDoesNotExist(int id)
+        {
+            // Arrange
+            var mockService = new Mock<IMatcheService>();
+            mockService.Setup(x => x.GetMatchDetailsByIdAsync(id)).ReturnsAsync((Api_Sport_DataLayer_DataLayer.Models.Match)null);
+            var controller = new MatchController(mockService.Object);
+
+            // Act
+            var result = await controller.MatchDetails(id);
+
+            // Assert
+            Assert.IsType<NotFoundResult>(result);
+        }
+        #endregion
+        #region match create
+        [Fact(DisplayName = "CreateMatch_ReturnsOk_WhenValidMatch")]
+        public async Task CreateValidMatchReturnOk()
+        {
+            // Arrange
+            var match = new Api_Sport_DataLayer_DataLayer.Models.Match
             {
                 Id = 1,
-                Description = "Test",
-                Title = "Test",
+                Title = "Title",
+                Description = "Desc"
             };
-            var mockUserService = new Mock<IMatcheService>();
-            mockUserService.Setup(x => x.GetMatchDetailsByIdAsync(Id)).ReturnsAsync(matchInstance);
-            var controller = new MatchController(mockUserService.Object);
-            //act
 
-            var result = controller.MatchDetails(Id);
+            var mockService = new Mock<IMatcheService>();
+            mockService.Setup(c => c.CreateMatchAsync(match)).Returns(Task.CompletedTask);
+
+            var controller = new MatchController(mockService.Object);
+
+            // Act
+            var result = await controller.CreateMatch(match);
+
+            // Assert
             var okResult = Assert.IsType<OkObjectResult>(result);
-            var resultValue = okResult.Value;
-
-            //assert
-            Assert.Equal(resultValue, matchInstance);
-
+            Assert.Equal(match, okResult.Value);
         }
+
+        #endregion
     }
 }
